@@ -11,6 +11,7 @@ Catalog for the master vault.
 - [[ops/notion-ops-db|Notion ops database]]
 - [[ops/automation-map|Automation map]]
 - [[ops/templates/notion-ops-database|Notion DB DDL]]
+- [[ops/reports/2026-04-13-github-pages-ci-cd-retro|GitHub Pages CI/CD setup note]]
 
 ## Knowledge
 

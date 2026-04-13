@@ -28,3 +28,9 @@ Append-only timeline for master vault operations.
 - Expanded `ops/github-pages-setup.md` with a practical Actions checklist and no-secret guidance
 - Added `ops/templates/notion-ops-database.sql` for creating the publishing ops database
 - Linked the Notion DDL template from the vault index and operations docs
+
+## [2026-04-13] docs | captured Pages deployment retrospective
+
+- Added `ops/reports/2026-04-13-github-pages-ci-cd-retro.md` as a Notion-friendly setup note
+- Added `ops/reports/2026-04-13-github-pages-settings-checklist.csv` for checklist import into Notion
+- Recorded the difference between CI and CD, required repository settings, and deferred follow-up items
