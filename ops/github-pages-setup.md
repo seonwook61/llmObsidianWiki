@@ -51,6 +51,8 @@ If you later want canonical URLs for SEO metadata, add:
 - `PUBLIC_SITE_URL`
   - Example: `https://seonwook61.github.io/llmObsidianWiki`
 
+For this repository, that URL is also the correct default project Pages address unless you later connect a custom domain.
+
 ## Quick Checklist
 
 - `Settings -> Pages -> Source = GitHub Actions`
