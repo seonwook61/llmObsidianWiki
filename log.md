@@ -16,3 +16,15 @@ Append-only timeline for master vault operations.
 - Added a sample daily note and a sample published post
 - Added an Astro site that reads from `publish/posts/`
 - Added GitHub Pages deployment workflow
+
+## [2026-04-13] docs | expanded operational setup guidance
+
+- Added `ops/git-workflow.md` for trunk-based branch management
+- Added `ops/github-pages-setup.md` to document required Pages and Actions settings
+- Expanded `ops/notion-ops-db.md` with concrete status options and suggested views
+
+## [2026-04-13] docs | added reusable setup templates
+
+- Expanded `ops/github-pages-setup.md` with a practical Actions checklist and no-secret guidance
+- Added `ops/templates/notion-ops-database.sql` for creating the publishing ops database
+- Linked the Notion DDL template from the vault index and operations docs

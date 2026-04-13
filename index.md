@@ -5,10 +5,12 @@ Catalog for the master vault.
 ## Domains
 
 - [[ops/blog-architecture|System architecture]]
+- [[ops/github-pages-setup|GitHub Pages setup]]
 - [[ops/git-workflow|Git workflow]]
 - [[ops/publishing-runbook|Publishing runbook]]
 - [[ops/notion-ops-db|Notion ops database]]
 - [[ops/automation-map|Automation map]]
+- [[ops/templates/notion-ops-database|Notion DB DDL]]
 
 ## Knowledge
 
