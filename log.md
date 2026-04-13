@@ -1,0 +1,18 @@
+# Log
+
+Append-only timeline for master vault operations.
+
+## [2026-04-13] setup | initialized master vault structure
+
+- Created domain-based `raw/`, `wiki/`, `journal/`, and `publish/` folders
+- Added root policy and starting documentation
+- Reserved `site/` for the Astro-based GitHub Pages site
+- Reserved `ops/` for architecture docs, templates, and automation mapping
+
+## [2026-04-13] bootstrap | added publishing templates and public site scaffold
+
+- Added daily note and public post templates under `ops/templates/`
+- Added nested policy files for `journal/`, `publish/`, and `site/`
+- Added a sample daily note and a sample published post
+- Added an Astro site that reads from `publish/posts/`
+- Added GitHub Pages deployment workflow

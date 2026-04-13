@@ -1,0 +1,264 @@
+:root {
+  --bg: #f6f3ea;
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: #ffffff;
+  --text: #1f1a17;
+  --muted: #5d534b;
+  --line: rgba(31, 26, 23, 0.12);
+  --accent: #145c4f;
+  --accent-soft: rgba(20, 92, 79, 0.12);
+  --warm: #e9c46a;
+  --shadow: 0 24px 60px rgba(31, 26, 23, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(233, 196, 106, 0.18), transparent 24rem),
+    linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 1.5rem 0 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.9rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), #1d3557);
+  color: #fff;
+  font-weight: 700;
+}
+
+.brand-copy {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.brand-copy strong {
+  font-size: 1rem;
+}
+
+.brand-copy span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.nav a:hover {
+  color: var(--text);
+  border-color: rgba(20, 92, 79, 0.4);
+}
+
+main {
+  padding: 1rem 0 4rem;
+}
+
+.hero,
+.panel,
+.card,
+.post-shell {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.hero {
+  border-radius: 2rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 0.95;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.panel {
+  border-radius: 1.4rem;
+  padding: 1.1rem;
+}
+
+.panel h2,
+.section-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 1.4rem;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card h3 {
+  margin: 0.35rem 0 0.6rem;
+  font-size: 1.25rem;
+}
+
+.eyebrow,
+.meta,
+.muted {
+  color: var(--muted);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.list-item {
+  border-radius: 1.4rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.post-shell {
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.post-shell h1 {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+}
+
+.post-shell article {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.post-shell article h2,
+.post-shell article h3 {
+  margin-top: 2rem;
+}
+
+.post-shell article code {
+  background: rgba(31, 26, 23, 0.08);
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.3rem;
+}
+
+.search-box {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  background: #fff;
+}
+
+.footer {
+  padding: 2rem 0 4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .post-shell {
+    padding: 1.4rem;
+  }
+}

@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "A public writing space derived from a private llm-wiki master vault." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand-mark">LW</span>
+          <span class="brand-copy">
+            <strong>llm-wiki master</strong>
+            <span>private capture, durable knowledge, public writing</span>
+          </span>
+        </a>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/archive/">Archive</a>
+          <a href="/search/">Search</a>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="footer">
+        <p>Built from `publish/posts/` and deployed with GitHub Pages.</p>
+      </footer>
+    </div>
+  </body>
+</html>

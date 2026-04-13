@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts, groupByCategory, groupByTag, groupBySeries } from "../lib/posts";
+
+const posts = await getPublishedPosts();
+const categories = groupByCategory(posts);
+const tags = groupByTag(posts).slice(0, 8);
+const series = groupBySeries(posts);
+const latestPosts = posts.slice(0, 6);
+---
+
+<BaseLayout title="llm-wiki master">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Master vault publishing system</p>
+      <h1>Notes that stay private. Knowledge that compounds. Posts that publish cleanly.</h1>
+    </div>
+    <p>
+      This site is generated from the canonical `publish/posts/` layer of an llm-wiki master vault.
+      Daily capture stays private, durable knowledge stays in the wiki, and public writing is derived on purpose.
+    </p>
+    <div class="hero-grid">
+      <article class="panel">
+        <h2>Latest posts</h2>
+        <p class="muted">{latestPosts.length} published post{latestPosts.length === 1 ? "" : "s"} are available for reading.</p>
+      </article>
+      <article class="panel">
+        <h2>Categories</h2>
+        <p class="muted">{categories.length} public categories are currently active.</p>
+      </article>
+      <article class="panel">
+        <h2>Series</h2>
+        <p class="muted">{series.length} series group recurring themes across posts.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Latest writing</h2>
+    <div class="card-grid">
+      {latestPosts.map((post) => (
+        <a class="card" href={post.url}>
+          <p class="eyebrow">{post.domain} · {post.category}</p>
+          <h3>{post.title}</h3>
+          <p class="muted">{post.summary}</p>
+          <div class="meta">
+            <span>{post.date}</span>
+            {post.series && <span>Series: {post.series}</span>}
+          </div>
+          <div class="tag-row">
+            {post.tags.map((tag) => (
+              <span class="tag">#{tag}</span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Browse by category</h2>
+    <div class="card-grid">
+      {categories.map(([category, categoryPosts]) => (
+        <a class="card" href={`/categories/${category}/`}>
+          <p class="eyebrow">Category</p>
+          <h3>{category}</h3>
+          <p class="muted">{categoryPosts.length} post{categoryPosts.length === 1 ? "" : "s"} in this stream.</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Popular tags</h2>
+    <div class="tag-row">
+      {tags.map(([tag, tagPosts]) => (
+        <a class="tag" href={`/tags/${tag}/`}>#{tag} · {tagPosts.length}</a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout title={`${post.title} | llm-wiki master`} description={post.summary}>
+  <section class="post-shell">
+    <p class="eyebrow">{post.domain} · {post.category}</p>
+    <h1>{post.title}</h1>
+    <div class="meta">
+      <span>{post.date}</span>
+      <span>Status: {post.status}</span>
+      {post.series && <span>Series: <a href={`/series/${post.series}/`}>{post.series}</a></span>}
+    </div>
+    <div class="tag-row">
+      {post.tags.map((tag) => (
+        <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>
+      ))}
+    </div>
+    <article set:html={post.html} />
+  </section>
+</BaseLayout>

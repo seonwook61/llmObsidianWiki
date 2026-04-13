@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedPosts } from "../lib/posts";
+
+const posts = await getPublishedPosts();
+const payload = posts.map((post) => ({
+  title: post.title,
+  summary: post.summary,
+  url: post.url,
+  tags: post.tags,
+  category: post.category,
+  domain: post.domain,
+  date: post.date
+}));
+---
+
+<BaseLayout title="Search | llm-wiki master">
+  <section class="panel">
+    <p class="eyebrow">Search</p>
+    <h1>Search the public archive</h1>
+    <p class="muted">Filter published posts by title, summary, tag, category, or domain.</p>
+  </section>
+
+  <section class="section panel">
+    <input class="search-box" id="search-box" type="search" placeholder="Search posts..." />
+    <div id="results" class="list" style="margin-top: 1rem;"></div>
+  </section>
+
+  <script define:vars={{ payload }}>
+    const searchBox = document.getElementById("search-box");
+    const results = document.getElementById("results");
+
+    function render(items) {
+      results.innerHTML = items.map((item) => `
+        <article class="list-item panel">
+          <div class="meta">
+            <span>${item.date}</span>
+            <span>${item.domain}</span>
+            <span>${item.category}</span>
+          </div>
+          <h2><a href="${item.url}">${item.title}</a></h2>
+          <p class="muted">${item.summary}</p>
+          <div class="tag-row">
+            ${item.tags.map((tag) => `<span class="tag">#${tag}</span>`).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    render(payload);
+
+    searchBox?.addEventListener("input", (event) => {
+      const query = event.target.value.toLowerCase().trim();
+      const items = !query
+        ? payload
+        : payload.filter((item) =>
+            [item.title, item.summary, item.category, item.domain, ...item.tags]
+              .join(" ")
+              .toLowerCase()
+              .includes(query)
+          );
+      render(items);
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,17 @@
+# Obsidian
+.obsidian/workspace.json
+
+# Node / Astro
+site/node_modules/
+site/dist/
+site/.astro/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
