@@ -38,3 +38,4 @@ This vault separates private capture, durable knowledge, and public publishing.
 - GitHub Pages is the canonical public publishing channel for v1.
 - Notion is an operations database, not a source-of-truth editor.
 - n8n is reserved for sync and notification workflows.
+- Git workflow is trunk-based with `main` as the stable branch and short-lived `codex/*` branches for substantial work.
